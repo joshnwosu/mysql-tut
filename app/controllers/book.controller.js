@@ -93,7 +93,29 @@ exports.update = (req, res) => {
 };
 
 // Delete a Book with the specified id in the request
-exports.delete = (req, res) => {};
+exports.delete = (req, res) => {
+  const id = req.params.id;
+
+  Book.destroy({
+    where: { id: id },
+  })
+    .then((num) => {
+      if (num == 1) {
+        res.send({
+          message: "Book was deleted successfully!",
+        });
+      } else {
+        res.send({
+          message: `Cannot delete Book with id=${id}. Maybe Book was not found!`,
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: "Could not delete Book with id=" + id,
+      });
+    });
+};
 
 // Delete all Books from the database
 exports.deleteAll = (req, res) => {
