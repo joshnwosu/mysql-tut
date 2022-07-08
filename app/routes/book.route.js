@@ -6,6 +6,7 @@ module.exports = (app) => {
   router.get("/all", books.findAll);
   router.put("/:id", books.update);
   router.get("/:id", books.findOne);
+  // Delete a Book with id
   router.delete("/:id", books.delete);
   // Delete all Books
   router.delete("/", books.deleteAll);
