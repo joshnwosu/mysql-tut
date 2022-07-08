@@ -28,8 +28,9 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to this application" });
 });
 
-require("./app/routes/tutorial.route")(app);
-require("./app/routes/book.route")(app);
+require("./app/routes/tutorial.routes")(app);
+require("./app/routes/book.routes")(app);
+require("./app/routes/auth.routes")(app);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
