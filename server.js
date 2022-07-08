@@ -29,6 +29,7 @@ app.get("/", (req, res) => {
 });
 
 require("./app/routes/tutorial.route")(app);
+require("./app/routes/book.route")(app);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
