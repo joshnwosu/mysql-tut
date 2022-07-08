@@ -3,6 +3,7 @@ module.exports = (app) => {
   var router = require("express").Router();
   // Create a new Tutorial
   router.post("/", books.create);
+  // Retrieve all Books
   router.get("/all", books.findAll);
   // Update a Book with id
   router.put("/:id", books.update);
