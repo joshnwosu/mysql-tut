@@ -4,6 +4,7 @@ module.exports = (app) => {
   // Create a new Tutorial
   router.post("/", books.create);
   router.get("/all", books.findAll);
+  // Update a Book with id
   router.put("/:id", books.update);
   // Retrieve a sing Book wit id
   router.get("/:id", books.findOne);
