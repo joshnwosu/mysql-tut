@@ -5,6 +5,7 @@ module.exports = (app) => {
   router.post("/", books.create);
   router.get("/all", books.findAll);
   router.put("/:id", books.update);
+  // Retrieve a sing Book wit id
   router.get("/:id", books.findOne);
   // Delete a Book with id
   router.delete("/:id", books.delete);
