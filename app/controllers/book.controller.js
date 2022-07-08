@@ -1,5 +1,5 @@
 const db = require("../models");
-const Book = db.Book;
+const Book = db.book;
 const Op = db.Sequelize.Op;
 
 // Create and save a new Book
