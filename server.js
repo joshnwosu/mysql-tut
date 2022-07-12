@@ -7,7 +7,7 @@ var corsOptions = {
   origin: "http://localhost:8081",
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(express.json());
 
@@ -31,6 +31,7 @@ app.get("/", (req, res) => {
 require("./app/routes/tutorial.routes")(app);
 require("./app/routes/book.routes")(app);
 require("./app/routes/auth.routes")(app);
+require("./app/routes/user.routes")(app);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
