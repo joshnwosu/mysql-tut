@@ -4,7 +4,7 @@ module.exports = (app) => {
   // Create a new Tutorial
   router.post("/", tutorials.create);
   // Retrieve all Tutorials -
-  // Cause also be filtered by [title, description] Eg: ?title=hello&description=world
+  // Cause also be filtered by [title, description] Eg: ?search=hello
   router.get("/", tutorials.findAll);
   // Retrieve all published Tutorials
   router.get("/published", tutorials.findAllPublished);
