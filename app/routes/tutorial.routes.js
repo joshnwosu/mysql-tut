@@ -3,7 +3,8 @@ module.exports = (app) => {
   var router = require("express").Router();
   // Create a new Tutorial
   router.post("/", tutorials.create);
-  // Retrieve all Tutorials
+  // Retrieve all Tutorials -
+  // Cause also be filtered by [title, description] Eg: ?title=hello&description=world
   router.get("/", tutorials.findAll);
   // Retrieve all published Tutorials
   router.get("/published", tutorials.findAllPublished);
