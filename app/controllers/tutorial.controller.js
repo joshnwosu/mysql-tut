@@ -37,15 +37,28 @@ exports.findAll = (req, res) => {
   const title = req.query.title;
   const description = req.query.description;
 
-  // var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+  var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+
+  var query = {};
+
+  var queryCondition = title || description;
+
+  if (title != "") {
+    query.title = { [Op.like]: `%${title}%` };
+  }
+
+  if (description != "") {
+    query.description = { [Op.like]: `%${description}%` };
+  }
+
+  console.log(query);
 
   Tutorial.findAll({
-    where: {
-      [Op.or]: {
-        title: { [Op.like]: `%${title}%` },
-        description: { [Op.like]: `%${description}%` },
-      },
-    },
+    where: queryCondition
+      ? {
+          [Op.or]: query,
+        }
+      : null,
   })
     .then((data) => {
       res.send(data);
